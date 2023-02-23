@@ -1,3 +1,10 @@
+## 1.0.0 (2023-02-23)
+
+
+### New Features
+
+* initial commit ([8679ef8](https://github.com/tr8team/helm.systems_database-ui/commit/8679ef83b78abd65deafbc7c6d3a5ed72a39462f))
+
 ## [1.5.0](https://github.com/tr8team/helm-wrapper-template/compare/v1.4.0...v1.5.0) (2023-02-19)
 
 
