@@ -1,0 +1,22 @@
+{{ if .Values.adminer.enable }}
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.adminer.designation }}
+  labels:
+    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: {{ .Values.adminer.designation }}
+spec:
+  type: {{ .Values.adminer.service.type }}
+  ports:
+    - port: {{ .Values.adminer.service.port }}
+      targetPort: 8080
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: {{ .Values.adminer.designation }}
+{{- end }}

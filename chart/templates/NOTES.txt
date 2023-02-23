@@ -1,1 +1,5 @@
-Sample Notes Here
+Install the following DB UI:
+- adminer
+- pgweb
+- beavercloud
+- commander

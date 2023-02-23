@@ -1,6 +1,6 @@
 apiVersion: v2
-name: sample-chart-name
-description: Sample Chart Description
+name: gotrade-db-ui
+description: Install common database UIs
 
 type: application
 

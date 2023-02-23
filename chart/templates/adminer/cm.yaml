@@ -1,0 +1,13 @@
+{{ if .Values.adminer.enable }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.adminer.designation }}-cm
+  labels:
+    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: {{ .Values.adminer.designation }}
+data:
+  adminer.css: |
+    {{- .Files.Get "adminer.css" | nindent 4 }}
+{{- end }}

@@ -2,12 +2,154 @@ labels:
   # -- L of LPSD of Gotrade Service Tree
   landscape: develop
   # -- P of LPSD of Gotrade Service Tree
-  platform: system
+  platform: systems
   # -- P of LPSD of Gotrade Service Tree
-  service: template
+  service: db-ui
   # -- Infrastructure layer this application belongs to
-  layer: "1"
+  layer: "2"
   # -- Team in charge of this chart
   team: ESD
   # -- chart version
   version: {{ .Env.VERSION }}
+
+pgweb:
+  enable: true
+  designation: pgweb
+  service:
+    type: ClusterIP
+    port: 80
+  image:
+    repository: ghcr.io/sosedoff/pgweb
+    tag: 0.14.0
+    pullPolicy: IfNotPresent
+  podSecurityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+    runAsNonRoot: true
+  securityContext:
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    capabilities:
+      drop:
+        - ALL
+  resources:
+    limits:
+      cpu: 1
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 512Mi
+  nodeSelector:
+    kubernetes.io/os: linux
+    kubernetes.io/arch: amd64
+cloudbeaver:
+  enable: true
+  storage:
+    class: ebs-sc
+    size: 512Mi
+  designation: cloudbeaver
+  service:
+    type: ClusterIP
+    port: 80
+  image:
+    repository: dbeaver/cloudbeaver
+    tag: 22.3.5
+    pullPolicy: IfNotPresent
+  podSecurityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+    runAsNonRoot: true
+  securityContext:
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    capabilities:
+      drop:
+        - ALL
+  resources:
+    limits:
+      cpu: 1
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 512Mi
+  nodeSelector:
+    kubernetes.io/os: linux
+    kubernetes.io/arch: amd64
+
+adminer:
+  designation: adminer
+  enable: true
+  service:
+    type: ClusterIP
+    port: 80
+  image:
+    repository: adminer
+    tag: 4.8.1
+    pullPolicy: IfNotPresent
+  podSecurityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+    runAsNonRoot: true
+  securityContext:
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    capabilities:
+      drop:
+        - ALL
+  resources:
+    limits:
+      cpu: 1
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 512Mi
+  nodeSelector:
+      kubernetes.io/os: linux
+      kubernetes.io/arch: amd64
+
+commander:
+  designation: commander
+  enable: true
+  service:
+    type: ClusterIP
+    port: 80
+  image:
+    repository: ghcr.io/joeferner/redis-commander
+    tag: 0.8.1
+    pullPolicy: IfNotPresent
+  podSecurityContext:
+    runAsUser: 1000
+    runAsGroup: 1000
+    fsGroup: 1000
+    runAsNonRoot: true
+  securityContext:
+    allowPrivilegeEscalation: false
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 1000
+    runAsGroup: 1000
+    capabilities:
+      drop:
+        - ALL
+  resources:
+    limits:
+      cpu: 1
+      memory: 2Gi
+    requests:
+      cpu: 100m
+      memory: 512Mi
+  nodeSelector:
+      kubernetes.io/os: linux
+      kubernetes.io/arch: amd64

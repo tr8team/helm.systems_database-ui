@@ -1,0 +1,65 @@
+{{ if .Values.cloudbeaver.enable }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.cloudbeaver.designation }}
+  labels:
+    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: "{{ .Values.cloudbeaver.designation }}"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "gotrade-db-ui.labels" . | nindent 6 }}
+      {{- include "gotrade-db-ui.tr8labels" . | nindent 6 }}
+      tr8.io/designation: "{{ .Values.cloudbeaver.designation }}"
+  template:
+    metadata:
+      labels:
+        {{- include "gotrade-db-ui.labels" . | nindent 8 }}
+        {{- include "gotrade-db-ui.tr8labels" . | nindent 8 }}
+        tr8.io/designation: "{{ .Values.cloudbeaver.designation }}"
+    spec:
+      securityContext:
+      {{- toYaml .Values.cloudbeaver.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}-{{ .Values.cloudbeaver.designation }}
+          securityContext:
+          {{- toYaml .Values.cloudbeaver.securityContext | nindent 12 }}
+          image: "{{ .Values.cloudbeaver.image.repository }}:{{ .Values.cloudbeaver.image.tag }}"
+          imagePullPolicy: {{ .Values.cloudbeaver.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8978
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          volumeMounts:
+            - mountPath: "/opt/cloudbeaver/workspace"
+              name: beaver-pv-storage
+          resources:
+      {{- toYaml .Values.cloudbeaver.resources | nindent 12 }}
+      {{- with .Values.cloudbeaver.nodeSelector }}
+      nodeSelector:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.cloudbeaver.affinity }}
+      affinity:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.cloudbeaver.tolerations }}
+      tolerations:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: beaver-pv-storage
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-cloud-beaver-pv-claim
+{{- end }}

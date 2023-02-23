@@ -1,0 +1,71 @@
+{{ if .Values.adminer.enable }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.adminer.designation }}
+  labels:
+    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: "{{ .Values.adminer.designation }}"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "gotrade-db-ui.labels" . | nindent 6 }}
+      {{- include "gotrade-db-ui.tr8labels" . | nindent 6 }}
+      tr8.io/designation: "{{ .Values.adminer.designation }}"
+  template:
+    metadata:
+      labels:
+        {{- include "gotrade-db-ui.labels" . | nindent 8 }}
+        {{- include "gotrade-db-ui.tr8labels" . | nindent 8 }}
+        tr8.io/designation: "{{ .Values.adminer.designation }}"
+    spec:
+      securityContext:
+      {{- toYaml .Values.adminer.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}-{{ .Values.adminer.designation }}
+          securityContext:
+          {{- toYaml .Values.adminer.securityContext | nindent 12 }}
+          image: "{{ .Values.adminer.image.repository }}:{{ .Values.adminer.image.tag }}"
+          imagePullPolicy: {{ .Values.adminer.image.pullPolicy }}
+          volumeMounts:
+            - mountPath: /var/www/html/adminer.css
+              subPath: "adminer.css"
+              name: theme
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+            periodSeconds: 20
+            timeoutSeconds: 5
+          resources:
+      {{- toYaml .Values.adminer.resources | nindent 12 }}
+      {{- with .Values.adminer.nodeSelector }}
+      nodeSelector:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.adminer.affinity }}
+      affinity:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.adminer.tolerations }}
+      tolerations:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: theme
+          configMap:
+            name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.adminer.designation }}-cm
+{{- end }}

@@ -1,0 +1,13 @@
+{{ if .Values.cloudbeaver.enable }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-cloud-beaver-pv-claim
+spec:
+  storageClassName: {{ .Values.cloudbeaver.storage.class }}
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.cloudbeaver.storage.size }}
+{{- end }}

@@ -1,0 +1,58 @@
+{{ if .Values.pgweb.enable }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.pgweb.designation }}
+  labels:
+    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: "{{ .Values.pgweb.designation }}"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "gotrade-db-ui.labels" . | nindent 6 }}
+      {{- include "gotrade-db-ui.tr8labels" . | nindent 6 }}
+      tr8.io/designation: "{{ .Values.pgweb.designation }}"
+  template:
+    metadata:
+      labels:
+        {{- include "gotrade-db-ui.labels" . | nindent 8 }}
+        {{- include "gotrade-db-ui.tr8labels" . | nindent 8 }}
+        tr8.io/designation: "{{ .Values.pgweb.designation }}"
+    spec:
+      securityContext:
+      {{- toYaml .Values.pgweb.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}-{{ .Values.pgweb.designation }}
+          securityContext:
+          {{- toYaml .Values.pgweb.securityContext | nindent 12 }}
+          image: "{{ .Values.pgweb.image.repository }}:{{ .Values.pgweb.image.tag }}"
+          imagePullPolicy: {{ .Values.pgweb.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8081
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+      {{- toYaml .Values.pgweb.resources | nindent 12 }}
+      {{- with .Values.pgweb.nodeSelector }}
+      nodeSelector:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.pgweb.affinity }}
+      affinity:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.pgweb.tolerations }}
+      tolerations:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

@@ -9,7 +9,7 @@ includes:
   enforce: ./scripts/Taskfile.enforce.yml
 
 env:
-  RELEASE_NAME: sample-release
+  RELEASE_NAME: db-ui
 
 tasks:
   setup:
