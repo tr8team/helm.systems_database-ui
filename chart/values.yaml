@@ -45,11 +45,10 @@ pgweb:
       memory: 512Mi
   nodeSelector:
     kubernetes.io/os: linux
-    kubernetes.io/arch: amd64
 cloudbeaver:
   enable: true
   storage:
-    class: ebs-sc
+    class: local-path
     size: 512Mi
   designation: cloudbeaver
   service:
@@ -82,8 +81,6 @@ cloudbeaver:
       memory: 512Mi
   nodeSelector:
     kubernetes.io/os: linux
-    kubernetes.io/arch: amd64
-
 adminer:
   designation: adminer
   enable: true
@@ -101,7 +98,7 @@ adminer:
     runAsNonRoot: true
   securityContext:
     allowPrivilegeEscalation: false
-    readOnlyRootFilesystem: true
+    readOnlyRootFilesystem: false
     runAsNonRoot: true
     runAsUser: 1000
     runAsGroup: 1000
@@ -117,7 +114,6 @@ adminer:
       memory: 512Mi
   nodeSelector:
       kubernetes.io/os: linux
-      kubernetes.io/arch: amd64
 
 commander:
   designation: commander
@@ -152,4 +148,3 @@ commander:
       memory: 512Mi
   nodeSelector:
       kubernetes.io/os: linux
-      kubernetes.io/arch: amd64
