@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/tr8team/helm.systems_database-ui/compare/v1.0.0...v1.0.1) (2023-02-24)
+
+
+### Bug Fixes
+
+* values file ([1527c72](https://github.com/tr8team/helm.systems_database-ui/commit/1527c720f8006d6cc1fc70488ad623b35d0b2685))
+
 ## 1.0.0 (2023-02-23)
 
 
