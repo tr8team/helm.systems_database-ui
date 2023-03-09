@@ -10,7 +10,7 @@ labels:
   # -- Team in charge of this chart
   team: ESD
   # -- chart version
-  version: 1.1.0
+  version: 1.1.1
 
 pgweb:
   enable: true

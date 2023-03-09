@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/tr8team/helm.systems_database-ui/compare/v1.1.0...v1.1.1) (2023-03-09)
+
+
+### Bug Fixes
+
+* change name from values.staging to values.stage ([21b2279](https://github.com/tr8team/helm.systems_database-ui/commit/21b2279418d9ee5b6c42ac9dfd62f99c642eac3b))
+
 ## [1.1.0](https://github.com/tr8team/helm.systems_database-ui/compare/v1.0.1...v1.1.0) (2023-03-09)
 
 

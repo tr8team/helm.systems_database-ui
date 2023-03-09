@@ -1,6 +1,6 @@
 # gotrade-db-ui
 
-![Version: 1.1.0](https://img.shields.io/badge/Version-1.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.0](https://img.shields.io/badge/AppVersion-0.0.0-informational?style=flat-square)
+![Version: 1.1.1](https://img.shields.io/badge/Version-1.1.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.0](https://img.shields.io/badge/AppVersion-0.0.0-informational?style=flat-square)
 
 Install common database UIs
 
@@ -81,7 +81,7 @@ Install common database UIs
 | labels.platform | string | `"systems"` | P of LPSD of Gotrade Service Tree |
 | labels.service | string | `"db-ui"` | P of LPSD of Gotrade Service Tree |
 | labels.team | string | `"ESD"` | Team in charge of this chart |
-| labels.version | string | `"1.1.0"` | chart version |
+| labels.version | string | `"1.1.1"` | chart version |
 | pgweb.designation | string | `"pgweb"` |  |
 | pgweb.enable | bool | `true` |  |
 | pgweb.image.pullPolicy | string | `"IfNotPresent"` |  |
