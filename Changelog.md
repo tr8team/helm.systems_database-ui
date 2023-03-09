@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/tr8team/helm.systems_database-ui/compare/v1.0.1...v1.1.0) (2023-03-09)
+
+
+### New Features
+
+* add production indo value file ([1fd2481](https://github.com/tr8team/helm.systems_database-ui/commit/1fd2481d7a688a7264a1f39a7a01e11323c22396))
+
 ## [1.0.1](https://github.com/tr8team/helm.systems_database-ui/compare/v1.0.0...v1.0.1) (2023-02-24)
 
 
