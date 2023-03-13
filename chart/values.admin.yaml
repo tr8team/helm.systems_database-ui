@@ -7,7 +7,7 @@ pgweb:
     repository: ghcr.io/sosedoff/pgweb
     tag: 0.14.0
 cloudbeaver:
-  enable: true
+  enable: false
   storage:
     class: ebs-sc
     size: 512Mi
@@ -21,7 +21,7 @@ adminer:
     tag: 4.8.1
 
 commander:
-  enable: true
+  enable: false
   image:
     repository: ghcr.io/joeferner/redis-commander
     tag: 0.8.1

@@ -46,7 +46,7 @@ pgweb:
   nodeSelector:
     kubernetes.io/os: linux
 cloudbeaver:
-  enable: true
+  enable: false
   storage:
     class: local-path
     size: 512Mi
@@ -117,7 +117,7 @@ adminer:
 
 commander:
   designation: commander
-  enable: true
+  enable: false
   service:
     type: ClusterIP
     port: 80
