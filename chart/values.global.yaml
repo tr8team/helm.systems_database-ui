@@ -1,0 +1,27 @@
+labels:
+  landscape: global
+
+pgweb:
+  enable: true
+  image:
+    repository: ghcr.io/sosedoff/pgweb
+    tag: 0.14.0
+cloudbeaver:
+  enable: false
+  storage:
+    class: ebs-sc
+    size: 512Mi
+  image:
+    repository: dbeaver/cloudbeaver
+    tag: 22.3.5
+adminer:
+  enable: true
+  image:
+    repository: adminer
+    tag: 4.8.1
+
+commander:
+  enable: false
+  image:
+    repository: ghcr.io/joeferner/redis-commander
+    tag: 0.8.1
