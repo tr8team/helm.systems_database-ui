@@ -1,3 +1,17 @@
+## [1.2.0](https://github.com/tr8team/helm.systems_database-ui/compare/v1.1.1...v1.2.0) (2023-04-05)
+
+
+### Bug Fixes
+
+* reduce resource request ([ebb55c8](https://github.com/tr8team/helm.systems_database-ui/commit/ebb55c83c4be54fe9fbd728e1f92d50f3ad0a61f))
+* remove not working db ui ([7dcc12a](https://github.com/tr8team/helm.systems_database-ui/commit/7dcc12a010abbf57103ac2a0b5f2342061a8c06d))
+
+
+### New Features
+
+* add dev values file ([b3cb875](https://github.com/tr8team/helm.systems_database-ui/commit/b3cb8758624d7bdcff0e3dae026c5d6f2f717d37))
+* add global values file ([b2042fb](https://github.com/tr8team/helm.systems_database-ui/commit/b2042fbffc57c89a5169daf5414f5510e7d440ed))
+
 ## [1.1.1](https://github.com/tr8team/helm.systems_database-ui/compare/v1.1.0...v1.1.1) (2023-03-09)
 
 
