@@ -81,7 +81,6 @@ Install common database UIs
 | labels.platform | string | `"systems"` | P of LPSD of Gotrade Service Tree |
 | labels.service | string | `"db-ui"` | P of LPSD of Gotrade Service Tree |
 | labels.team | string | `"ESD"` | Team in charge of this chart |
-| labels.version | string | `"1.2.1"` | chart version |
 | pgweb.designation | string | `"pgweb"` |  |
 | pgweb.enable | bool | `true` |  |
 | pgweb.image.pullPolicy | string | `"IfNotPresent"` |  |
