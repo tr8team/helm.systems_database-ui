@@ -41,8 +41,8 @@ pgweb:
       cpu: 1
       memory: 2Gi
     requests:
-      cpu: 100m
-      memory: 512Mi
+      cpu: 1m
+      memory: 32Mi
   nodeSelector:
     kubernetes.io/os: linux
 cloudbeaver:
@@ -110,8 +110,8 @@ adminer:
       cpu: 1
       memory: 2Gi
     requests:
-      cpu: 100m
-      memory: 512Mi
+      cpu: 1m
+      memory: 256Mi
   nodeSelector:
       kubernetes.io/os: linux
 
