@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/tr8team/helm.systems_database-ui/compare/v1.2.0...v1.2.1) (2023-04-05)
+
+
+### Bug Fixes
+
+* update precommit gitlint version ([bb5d88d](https://github.com/tr8team/helm.systems_database-ui/commit/bb5d88d2165185dab8b85ac34402e74a842256b6))
+
 ## [1.2.0](https://github.com/tr8team/helm.systems_database-ui/compare/v1.1.1...v1.2.0) (2023-04-05)
 
 
