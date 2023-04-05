@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/tr8team/helm.systems_database-ui/compare/v1.2.1...v1.2.2) (2023-04-05)
+
+
+### Bug Fixes
+
+* remove db ui version label ([54b228e](https://github.com/tr8team/helm.systems_database-ui/commit/54b228e6c44df6a53e9c6fcdba28d3d7bd13a961))
+
 ## [1.2.1](https://github.com/tr8team/helm.systems_database-ui/compare/v1.2.0...v1.2.1) (2023-04-05)
 
 
