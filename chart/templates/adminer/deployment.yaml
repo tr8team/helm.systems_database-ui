@@ -8,7 +8,6 @@ metadata:
     {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
     tr8.io/designation: "{{ .Values.adminer.designation }}"
   annotations:
-    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
     {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
     tr8.io/designation: "{{ .Values.adminer.designation }}"
 spec:
@@ -25,7 +24,6 @@ spec:
         {{- include "gotrade-db-ui.tr8labels" . | nindent 8 }}
         tr8.io/designation: "{{ .Values.adminer.designation }}"
       annotations:
-        {{- include "gotrade-db-ui.labels" . | nindent 8 }}
         {{- include "gotrade-db-ui.tr8labels" . | nindent 8 }}
         tr8.io/designation: "{{ .Values.adminer.designation }}"
     spec:
