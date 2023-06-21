@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/tr8team/helm.systems_database-ui/compare/v1.3.0...v1.3.1) (2023-06-21)
+
+
+### Bug Fixes
+
+* missing annotations ([ea44cd1](https://github.com/tr8team/helm.systems_database-ui/commit/ea44cd1212206dee216c4f0701edaf2875f933b1))
+
 ## [1.3.0](https://github.com/tr8team/helm.systems_database-ui/compare/v1.2.2...v1.3.0) (2023-06-21)
 
 
