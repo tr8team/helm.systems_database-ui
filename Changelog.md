@@ -1,3 +1,15 @@
+## [1.3.0](https://github.com/tr8team/helm.systems_database-ui/compare/v1.2.2...v1.3.0) (2023-06-21)
+
+
+### New Features
+
+* update landscape label ([10c6882](https://github.com/tr8team/helm.systems_database-ui/commit/10c6882e2500ce8ea94782b1f235d1f2973cfad4))
+
+
+### Bug Fixes
+
+* annotations ([b2a53d7](https://github.com/tr8team/helm.systems_database-ui/commit/b2a53d7a1510ebf69b9876989d282df4799d98d3))
+
 ## [1.2.2](https://github.com/tr8team/helm.systems_database-ui/compare/v1.2.1...v1.2.2) (2023-04-05)
 
 
