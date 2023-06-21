@@ -7,6 +7,10 @@ metadata:
     {{- include "gotrade-db-ui.labels" . | nindent 4 }}
     {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
     tr8.io/designation: "{{ .Values.pgweb.designation }}"
+  annotations:
+    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: "{{ .Values.pgweb.designation }}"
 spec:
   replicas: 1
   selector:
@@ -17,6 +21,10 @@ spec:
   template:
     metadata:
       labels:
+        {{- include "gotrade-db-ui.labels" . | nindent 8 }}
+        {{- include "gotrade-db-ui.tr8labels" . | nindent 8 }}
+        tr8.io/designation: "{{ .Values.pgweb.designation }}"
+      annotations:
         {{- include "gotrade-db-ui.labels" . | nindent 8 }}
         {{- include "gotrade-db-ui.tr8labels" . | nindent 8 }}
         tr8.io/designation: "{{ .Values.pgweb.designation }}"

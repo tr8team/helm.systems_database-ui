@@ -30,6 +30,11 @@ Install common database UIs
 | adminer.securityContext.runAsUser | int | `1000` |  |
 | adminer.service.port | int | `80` |  |
 | adminer.service.type | string | `"ClusterIP"` |  |
+| annotations.landscape | string | `"develop"` | L of LPSD of Gotrade Service Tree |
+| annotations.layer | string | `"2"` | Infrastructure layer this application belongs to |
+| annotations.platform | string | `"systems"` | P of LPSD of Gotrade Service Tree |
+| annotations.service | string | `"db-ui"` | P of LPSD of Gotrade Service Tree |
+| annotations.team | string | `"ESD"` | Team in charge of this chart |
 | cloudbeaver.designation | string | `"cloudbeaver"` |  |
 | cloudbeaver.enable | bool | `false` |  |
 | cloudbeaver.image.pullPolicy | string | `"IfNotPresent"` |  |
