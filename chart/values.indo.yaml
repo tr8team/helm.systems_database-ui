@@ -1,5 +1,5 @@
 labels:
-  landscape: p-indo
+  landscape: prod-indo
 
 pgweb:
   enable: true
