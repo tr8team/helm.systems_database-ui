@@ -15,7 +15,6 @@ spec:
   selector:
     matchLabels:
       {{- include "gotrade-db-ui.labels" . | nindent 6 }}
-      {{- include "gotrade-db-ui.tr8labels" . | nindent 6 }}
       tr8.io/designation: "{{ .Values.pgweb.designation }}"
   template:
     metadata:
