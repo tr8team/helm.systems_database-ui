@@ -1,3 +1,15 @@
+## [1.4.0](https://github.com/tr8team/helm.systems_database-ui/compare/v1.3.1...v1.4.0) (2023-06-22)
+
+
+### New Features
+
+* remove tr8labels as selectors ([f4293b8](https://github.com/tr8team/helm.systems_database-ui/commit/f4293b89105c51db03cb7a60fccaafcd69a30efd))
+
+
+### Bug Fixes
+
+* prod-indo incorrect label ([aa53ed1](https://github.com/tr8team/helm.systems_database-ui/commit/aa53ed13950fe8d0fa044a314dd8199b95f7988c))
+
 ## [1.3.1](https://github.com/tr8team/helm.systems_database-ui/compare/v1.3.0...v1.3.1) (2023-06-21)
 
 
