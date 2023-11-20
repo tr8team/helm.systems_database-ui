@@ -1,0 +1,26 @@
+{{ if .Values.cloudbeaver.enable }}
+{{ if .Values.cloudbeaver.ingress.enable }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.cloudbeaver.designation }}-host
+  labels:
+    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: "{{ .Values.cloudbeaver.designation }}"
+  annotations:
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: "{{ .Values.cloudbeaver.designation }}"
+spec:
+  rules:
+    - host: {{ .Values.cloudbeaver.ingress.host }}
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.cloudbeaver.designation }}
+                port:
+                  name: http
+{{ end }}
+{{ end }}

@@ -1,0 +1,26 @@
+{{ if .Values.commander.enable }}
+{{ if .Values.commander.ingress.enable }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.commander.designation }}-host
+  labels:
+    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: "{{ .Values.commander.designation }}"
+  annotations:
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: "{{ .Values.commander.designation }}"
+spec:
+  rules:
+    - host: {{ .Values.commander.ingress.host }}
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.commander.designation }}
+                port:
+                  name: http
+{{ end }}
+{{ end }}

@@ -11,6 +11,8 @@ labels:
   team: ESD
 pgweb:
   enable: true
+  ingress:
+    enable: false
   designation: pgweb
   service:
     type: ClusterIP
@@ -44,6 +46,8 @@ pgweb:
     kubernetes.io/os: linux
 cloudbeaver:
   enable: false
+  ingress:
+    enable: false
   storage:
     class: local-path
     size: 512Mi
@@ -81,6 +85,8 @@ cloudbeaver:
 adminer:
   designation: adminer
   enable: true
+  ingress:
+    enable: false
   service:
     type: ClusterIP
     port: 80
@@ -115,6 +121,8 @@ adminer:
 commander:
   designation: commander
   enable: false
+  ingress:
+    enable: false
   service:
     type: ClusterIP
     port: 80

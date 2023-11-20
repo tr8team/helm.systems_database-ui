@@ -1,0 +1,39 @@
+labels:
+  landscape: devbox
+
+pgweb:
+  enable: true
+  ingress:
+    enable: true
+    host: "pgweb.*.devbox.dev.tr8.tech"
+  image:
+    repository: ghcr.io/sosedoff/pgweb
+    tag: 0.14.0
+cloudbeaver:
+  enable: false
+  ingress:
+    enable: true
+    host: "cloudbeaver.*.devbox.dev.tr8.tech"
+  storage:
+    class: ebs-sc
+    size: 512Mi
+  image:
+    repository: dbeaver/cloudbeaver
+    tag: 22.3.5
+adminer:
+  enable: true
+  ingress:
+    enable: true
+    host: "adminer.*.devbox.dev.tr8.tech"
+  image:
+    repository: adminer
+    tag: 4.8.1
+
+commander:
+  enable: true
+  ingress:
+    enable: true
+    host: "commander.*.devbox.dev.tr8.tech"
+  image:
+    repository: ghcr.io/joeferner/redis-commander
+    tag: 0.8.1

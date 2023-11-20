@@ -1,0 +1,26 @@
+{{ if .Values.pgweb.enable }}
+{{ if .Values.pgweb.ingress.enable }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.pgweb.designation }}-host
+  labels:
+    {{- include "gotrade-db-ui.labels" . | nindent 4 }}
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: "{{ .Values.pgweb.designation }}"
+  annotations:
+    {{- include "gotrade-db-ui.tr8labels" . | nindent 4 }}
+    tr8.io/designation: "{{ .Values.pgweb.designation }}"
+spec:
+  rules:
+    - host: {{ .Values.pgweb.ingress.host }}
+      http:
+        paths:
+          - pathType: Prefix
+            backend:
+              service:
+                name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.pgweb.designation }}
+                port:
+                  name: http
+{{ end }}
+{{ end }}
