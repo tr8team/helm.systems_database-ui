@@ -17,6 +17,7 @@ spec:
       http:
         paths:
           - pathType: Prefix
+            path: "/cloudbeaver"
             backend:
               service:
                 name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.cloudbeaver.designation }}

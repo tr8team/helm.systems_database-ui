@@ -5,7 +5,7 @@ pgweb:
   enable: true
   ingress:
     enable: true
-    host: "pgweb.*.devbox.dev.tr8.tech"
+    host: "*.devbox.dev.tr8.tech"
   image:
     repository: ghcr.io/sosedoff/pgweb
     tag: 0.14.0
@@ -13,7 +13,7 @@ cloudbeaver:
   enable: false
   ingress:
     enable: true
-    host: "cloudbeaver.*.devbox.dev.tr8.tech"
+    host: "*.devbox.dev.tr8.tech"
   storage:
     class: ebs-sc
     size: 512Mi
@@ -24,7 +24,7 @@ adminer:
   enable: true
   ingress:
     enable: true
-    host: "adminer.*.devbox.dev.tr8.tech"
+    host: "*.devbox.dev.tr8.tech"
   image:
     repository: adminer
     tag: 4.8.1
