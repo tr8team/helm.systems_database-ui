@@ -33,7 +33,7 @@ commander:
   enable: true
   ingress:
     enable: true
-    host: "commander.*.devbox.dev.tr8.tech"
+    host: "*.devbox.dev.tr8.tech"
   image:
     repository: ghcr.io/joeferner/redis-commander
     tag: 0.8.1
