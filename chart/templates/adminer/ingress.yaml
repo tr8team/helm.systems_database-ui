@@ -17,7 +17,6 @@ spec:
       http:
         paths:
           - pathType: Prefix
-            path: "/adminer"
             backend:
               service:
                 name: "{{ include "gotrade-db-ui.fullname" . }}-{{ .Values.adminer.designation }}"

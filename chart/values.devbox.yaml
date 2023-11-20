@@ -2,7 +2,7 @@ labels:
   landscape: devbox
 
 pgweb:
-  enable: true
+  enable: false
   ingress:
     enable: true
     host: "*.devbox.dev.tr8.tech"
@@ -24,13 +24,13 @@ adminer:
   enable: true
   ingress:
     enable: true
-    host: "*.devbox.dev.tr8.tech"
+    host: "adminer.devbox.dev.tr8.tech"
   image:
     repository: adminer
     tag: 4.8.1
 
 commander:
-  enable: true
+  enable: false
   ingress:
     enable: true
     host: "*.devbox.dev.tr8.tech"
