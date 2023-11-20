@@ -24,7 +24,7 @@ adminer:
   enable: true
   ingress:
     enable: true
-    host: "adminer.devbox.dev.tr8.tech"
+    host: "*.devbox.dev.tr8.tech"
   image:
     repository: adminer
     tag: 4.8.1
