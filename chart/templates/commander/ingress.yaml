@@ -13,14 +13,14 @@ metadata:
     tr8.io/designation: "{{ .Values.commander.designation }}"
 spec:
   rules:
-    - host: {{ .Values.commander.ingress.host }}
+    - host: "{{ .Values.commander.ingress.host }}"
       http:
         paths:
           - pathType: Prefix
             path: "/commander"
             backend:
               service:
-                name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.commander.designation }}
+                name: "{{ include "gotrade-db-ui.fullname" . }}-{{ .Values.commander.designation }}"
                 port:
                   name: http
 {{ end }}

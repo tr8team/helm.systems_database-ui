@@ -13,14 +13,14 @@ metadata:
     tr8.io/designation: "{{ .Values.cloudbeaver.designation }}"
 spec:
   rules:
-    - host: {{ .Values.cloudbeaver.ingress.host }}
+    - host: "{{ .Values.cloudbeaver.ingress.host }}"
       http:
         paths:
           - pathType: Prefix
             path: "/cloudbeaver"
             backend:
               service:
-                name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.cloudbeaver.designation }}
+                name: "{{ include "gotrade-db-ui.fullname" . }}-{{ .Values.cloudbeaver.designation }}"
                 port:
                   name: http
 {{ end }}

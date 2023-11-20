@@ -13,14 +13,14 @@ metadata:
     tr8.io/designation: "{{ .Values.adminer.designation }}"
 spec:
   rules:
-    - host: {{ .Values.adminer.ingress.host }}
+    - host: "{{ .Values.adminer.ingress.host }}"
       http:
         paths:
           - pathType: Prefix
             path: "/adminer"
             backend:
               service:
-                name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.adminer.designation }}
+                name: "{{ include "gotrade-db-ui.fullname" . }}-{{ .Values.adminer.designation }}"
                 port:
                   name: http
 {{ end }}

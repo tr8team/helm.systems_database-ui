@@ -13,14 +13,14 @@ metadata:
     tr8.io/designation: "{{ .Values.pgweb.designation }}"
 spec:
   rules:
-    - host: {{ .Values.pgweb.ingress.host }}
+    - host: "{{ .Values.pgweb.ingress.host }}"
       http:
         paths:
           - pathType: Prefix
             path: "/pgweb"
             backend:
               service:
-                name: {{ include "gotrade-db-ui.fullname" . }}-{{ .Values.pgweb.designation }}
+                name: "{{ include "gotrade-db-ui.fullname" . }}-{{ .Values.pgweb.designation }}"
                 port:
                   name: http
 {{ end }}
